@@ -1,0 +1,41 @@
+{
+    "linkGroups": [{
+            "name": "Essential Links",
+            "links": [{
+                    "url": "https://vuejs.org",
+                    "text": "Core Docs"
+                },
+                {
+                    "url": "https://forum.vuejs.org",
+                    "text": "Forum"
+                },
+                {
+                    "url": "https://gitter.im/vuejs/vue",
+                    "text": "Gitter"
+                },
+                {
+                    "url": "https://twitter.com/vuejs",
+                    "text": "Twitter"
+                }
+            ]
+        },
+        {
+            "name": "Ecosystem",
+            "links": [{
+                    "url": "http://router.vuejs.org/",
+                    "text": "Router"
+                },
+                {
+                    "url": "http://vuex.vuejs.org/",
+                    "text": "Vuex"
+                }, {
+                    "url": "https://github.com/vuejs/vueify",
+                    "text": "Vueify"
+                }, {
+                    "url": "https://github.com/vuejs/awesome-vue",
+                    "text": "Awesome Vue"
+                }
+            ]
+        }
+    ]
+}
