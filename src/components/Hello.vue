@@ -3,51 +3,42 @@
     <img src="http://vuejs.org/images/logo.png">
 
     <h1>{{ msg }}</h1>
-    <h2 v-if="linkGroups && linkGroups.length">{{linkGroup.name}}</h2>
-    <ul v-for="linkGroup of linkGroups">
-    <li></li>
-    </ul>
-
-    <!--
-    <h2>Essential Links</h2>
+    <div v-for="linkGroup of linkGroups">
+    <h2>{{linkGroup.name}}</h2>
     <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://gitter.im/vuejs/vue" target="_blank">Gitter Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
+      <li v-for="link of linkGroup.links"><a :href="link.url"> {{ link.text }} </a></li>
     </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vueify" target="_blank">vueify</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
-    -->
+    </div>
   </div>
 </template>
 
 <script>
 import axios from 'axios';
+const config = {
+    method: 'get',
+    url: "http://localhost:8080/db.json"
+  };
 
 export default {
   name: 'hello',
   data () {
     return {
       msg: '',
-      linksGroups: []
+      linkGroups: []
     }
   },
 
   created() {
-    axios.get(`http://jsonplaceholder.typicode.com/linkGroups`)
+    axios.request(config)
     .then(response => {
       // JSON responses are automatically parsed.
-      this.posts = response.data
+      this.linkGroups = response.data
+      this.msg = "Done!"
     })
     .catch(e => {
       this.errors.push(e)
     })
+  }
 }
 </script>
 
